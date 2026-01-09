@@ -1,0 +1,310 @@
+.team-marquee-section * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .team-marquee-section {
+            
+            color: white;
+            overflow-x: hidden;
+            background: transparent;
+        }
+
+        .team-section {
+            padding: 60px 0;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 0 20px;
+        }
+
+        .section-title h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            line-height: 1.2;
+            background: linear-gradient(135deg, #bfff5a, #ffffff, #bfff5a);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .section-title p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .marquee-container {
+            position: relative;
+            overflow: hidden;
+            height: 420px;
+            mask: linear-gradient(
+                90deg,
+                transparent,
+                white 10%,
+                white 90%,
+                transparent
+            );
+            -webkit-mask: linear-gradient(
+                90deg,
+                transparent,
+                white 10%,
+                white 90%,
+                transparent
+            );
+        }
+
+        .marquee {
+            display: flex;
+            animation: scroll 60s linear infinite;
+            width: fit-content;
+            will-change: transform;
+        }
+
+        .marquee:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .team-card {
+            flex-shrink: 0;
+            width: 280px;
+            height: 392px;
+            margin: 0 15px;
+            background: #032368;
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .team-card:hover {
+            transform: translateY(-8px);
+            border-color: #bfff5a;
+            box-shadow: 0 20px 40px rgba(191, 255, 90, 0.2);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 280px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #032368, #051a4a);
+        }
+
+        /* Pre-loaded background images using CSS */
+        .team-card:nth-child(1) .card-image { background-image: url('https://123webdesigner.com/wp-content/uploads/2025/07/Deepa_result.webp'); }
+        .team-card:nth-child(2) .card-image { background-image: url('https://123webdesigner.com/wp-content/uploads/2025/07/Atul_result.webp'); }
+        .team-card:nth-child(3) .card-image { background-image: url('https://123webdesigner.com/wp-content/uploads/2025/07/Sarojini_result.webp'); }
+        .team-card:nth-child(4) .card-image { background-image: url('https://123webdesigner.com/wp-content/uploads/2025/07/Rishab_result.webp'); }
+        .team-card:nth-child(5) .card-image { background-image: url('https://123webdesigner.com/wp-content/uploads/2025/07/Kunal_result-1.webp'); }
+        .team-card:nth-child(6) .card-image { background-image: url('https://123webdesigner.com/wp-content/uploads/2025/07/Esha_result.webp'); }
+        .team-card:nth-child(7) .card-image { background-image: url('https://123webdesigner.com/wp-content/uploads/2025/07/Aashish_result.webp'); }
+        .team-card:nth-child(8) .card-image { background-image: url('https://123webdesigner.com/wp-content/uploads/2025/07/Aaditya_result.webp'); }
+        .team-card:nth-child(9) .card-image { background-image: url('https://123webdesigner.com/wp-content/uploads/2025/07/Ayush_result.webp'); }
+        .team-card:nth-child(10) .card-image { background-image: url('https://123webdesigner.com/wp-content/uploads/2025/07/Mani_result.webp'); }
+        .team-card:nth-child(11) .card-image { background-image: url('https://123webdesigner.com/wp-content/uploads/2025/07/Nishakant_result.webp'); }
+        .team-card:nth-child(12) .card-image { background-image: url('https://123webdesigner.com/wp-content/uploads/2025/07/Chetan_result.webp'); }
+        .team-card:nth-child(13) .card-image { background-image: url('https://123webdesigner.com/wp-content/uploads/2025/07/Amit_result.webp'); }
+        
+        .card-image {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+            transition: transform 0.3s ease;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card-image img.loaded {
+            opacity: 1;
+        }
+
+        .team-card:hover .card-image img {
+            transform: scale(1.05);
+        }
+
+        .card-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .member-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: white;
+            transition: transform 0.3s ease;
+        }
+
+        .member-role {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .team-card:hover .member-role {
+            color: #bfff5a;
+        }
+
+        .member-description {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.4;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            position: absolute;
+            top: 70px;
+            left: 20px;
+            right: 20px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .team-card:hover .member-description {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .team-card:hover .member-name,
+        .team-card:hover .member-role {
+            transform: translateY(-10px);
+        }
+
+        /* Preload images in hidden element */
+        .image-preloader {
+            position: absolute;
+            width: 0;
+            height: 0;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .team-card {
+                width: 260px;
+                height: 380px;
+            }
+            
+            .section-title {
+                margin-bottom: 50px;
+            }
+            
+            .marquee-container {
+                height: 380px;
+            }
+            
+            .card-image {
+                height: 270px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .team-section {
+                padding: 60px 0;
+            }
+            
+            .section-title {
+                margin-bottom: 40px;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+                margin-bottom: 15px;
+            }
+            
+            .section-title p {
+                font-size: 1rem;
+                padding: 0 15px;
+            }
+            
+            .marquee-container {
+                height: 360px;
+                mask: linear-gradient(
+                    90deg,
+                    transparent,
+                    white 5%,
+                    white 95%,
+                    transparent
+                );
+                -webkit-mask: linear-gradient(
+                    90deg,
+                    transparent,
+                    white 5%,
+                    white 95%,
+                    transparent
+                );
+            }
+            
+            .team-card {
+                width: 240px;
+                height: 340px;
+                margin: 0 12px;
+            }
+            
+            .card-image {
+                height: 250px;
+            }
+            
+            .card-content {
+                padding: 16px;
+                height: 140px;
+            }
+            
+            .member-name {
+                font-size: 1.2rem;
+            }
+            
+            .member-role {
+                font-size: 0.9rem;
+            }
+            
+            .member-description {
+                font-size: 0.8rem;
+                top: 65px;
+                left: 16px;
+                right: 16px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .team-card {
+                width: 220px;
+                height: 320px;
+            }
+            
+            .card-image {
+                height: 245px;
+            }
+        }
